@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.admiralicic.notes.async.DeleteAsyncTask;
 import com.admiralicic.notes.async.InsertAsyncTask;
+import com.admiralicic.notes.async.UpdateAsyncTask;
 import com.admiralicic.notes.models.Note;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class NoteRepository {
     }
 
     public void updateNote(Note note) {
-
+        new UpdateAsyncTask(mNoteDatabase.getNoteDao()).execute(note);
     }
 
     public LiveData<List<Note>> retrieveNotesTask() {
